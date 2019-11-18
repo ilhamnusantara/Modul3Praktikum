@@ -14,13 +14,13 @@ public class App {
 
     static Scanner inp = new Scanner(System.in);
     public static void main(String[] args) {
-        Penonton[] penonton = new Penonton[15];
+        Penonton[] penonton = new Penonton[16];
         String nama = null,alamat = null;
-        int jumlah=0;
+        int jumlah =0;
         int nomorTiket = 60;
         int def = 0;
         float hargaTiket = 40000;
-        float[] harga = new float[jumlah];
+        float[] harga = new float[100];
         int totalHarga = 0;
         int umur1 = 10;
         int umur2 = 18;
@@ -28,7 +28,8 @@ public class App {
         System.out.println("====SELAMAT DATANG====");
         System.out.println("===TIKET BIOSKOP CGV===");
         System.out.println("1. Masukan data pembeli");
-        System.out.println("2. Cetak tiket");
+        System.out.println("2. Harga yang harus dibayar");
+        System.out.println("3. Cetak tiket");
         System.out.print("pilih menu : ");
         int pilih = inp.nextInt();
         switch(pilih){
@@ -44,24 +45,30 @@ public class App {
                     String address = inp.next();
                     penonton[i] = new Penonton(nama, usia, alamat);
                 }
-                for(int j=0; j<jumlah; j++){
-                    if(penonton[j].usia<umur1){
-                        harga[j] = (float) (hargaTiket*0.9);
-                    }else if(penonton[j].usia>umur2){
-                        harga[j] = (float) (hargaTiket*0.98);
-                    }else if(penonton[j].usia>umur1 && penonton[j].usia<umur2){
-                        harga[j] = (float) (hargaTiket*0.95);
-                    }
-                    totalHarga+= totalHarga;
-                }
                 break;
             case 2 :
+                for(int j=0; j<jumlah; j++){
+                    if(penonton[j].usia<umur1){
+                        harga[j] = (float) (40000*0.9);
+                    }else if(penonton[j].usia>umur2){
+                        harga[j] = (float) (40000*0.98);
+                    }else if(penonton[j].usia>umur1 && penonton[j].usia<umur2){
+                        harga[j] = (float) (40000*0.95);
+                    }
+                    totalHarga+= harga[j];
+                }
+                System.out.println("tital : "+totalHarga);
+                break;
+            case 3 :
                 if(jumlah > 10){
                     System.out.println("Selamat anda mendapatkan bonus tiket karena pembelian lebih dari 10");
                    for(int i=1; i <= 11; i++){
                        System.out.println("Nomor tiket : "+nomorTiket+i);
                    }
-                    System.out.println("Yang harus dibayar : "+totalHarga);
+                }else{
+                    for(int j=0; j<jumlah; j++){
+                        System.out.println("Nomor tiket : "+nomorTiket+j);
+                    }
                 }
                 break;
             default:
