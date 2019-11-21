@@ -11,12 +11,30 @@ package app;
  */
 public class Penonton extends Manusia{
 
-    public Penonton(String nama, int usia, String alamat) {
+    int tiket;
+    String teks = "Terimakasih telah membeli tiket";
+    public Penonton(String nama, int usia, String alamat, int tiket) {
         super(nama, usia, alamat);
+        this.tiket = tiket;
+    }
+    @Override
+    void setTiket() {
+        
     }
 
     @Override
-    public void id() {
-        int id;
+    int getTiket() {
+       return tiket;
     }
+    
+    @Override
+    void ucapan(){
+        
+    };
+    
+    void ucapan(String teks){
+        this.teks = teks;
+        System.out.println(teks);
+    }
+    
 }

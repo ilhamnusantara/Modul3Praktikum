@@ -14,7 +14,9 @@ public abstract class Manusia {
     int usia;
     String alamat;
     
-    public abstract void id();
+    abstract void setTiket();
+    abstract int getTiket();
+    abstract void ucapan();
     
     public Manusia(String nama,int usia,String alamat){
         this.nama = nama;
